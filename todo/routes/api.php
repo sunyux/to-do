@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+/*controller*/
+Route::get('/items',[ItemController::class,'index']);
+/*database*/
+Route::prefix('/item')->group(function(){
+    Route::post('/store',[ItemController::class,'store']);
+    /*/store->api/item/store
+    'store' mean store function in itemcontroller*/
+    Route::put('/{id}',[ItemController::class,'update']);
+    Route::delete('/{id}',[ItemController::class,'destory']);
+    }
+);

@@ -2,9 +2,13 @@ create laravel
 'composer create-project --prefer-dist laravel/laravel todo'
 run the server
 'php artisan serve'
+https://laravel.com/docs/10.x/controllers
 create a table
 'php artisan make:model Item -m'
 -m, to create migration
 -c to create controller
 -r to specify the controller has resource
 Database in database->migrations
+
+Resource Controllers
+php artisan make:controller  ItemController --resource
